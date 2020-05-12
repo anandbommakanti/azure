@@ -5,5 +5,5 @@ $DriveLetterOfDataDisk = Get-Volume | where FileSystemLabel -eq "myDataDisk" | S
 $DriveLetterOfDataDisk=$DriveLetterOfDataDisk+":"
 $WebDir="$DriveLetterOfDataDisk\VirtualDirectory\TestApp"
 mkdir $WebDir
-echo "<html><body><h1>Hello, Welcome to Azure Virtual Machine</h1></html>" >> $WebDir
-PS F:\> New-WebApplication -name "TestApp" -ApplicationPool "DefaultAppPool" -Force -PhysicalPath $WebDir -Site "Default Web Site"
+echo "<html><body><h1>Hello, Welcome to Azure Virtual Machine</h1></html>" >> "$WebDir\Default.htm"
+New-WebApplication -name "TestApp" -ApplicationPool "DefaultAppPool" -Force -PhysicalPath $WebDir -Site "Default Web Site"
